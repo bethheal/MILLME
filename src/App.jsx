@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Home from './pages/Home/home';
-import About from './pages/About/about';
+import Loader from './components/Loader';
 import RootLayout from './layouts/RootLayout';
-import Products from './pages/Products/products';
-import Contact from './pages/Contact/contact';
+
+const Home = lazy(() => import('./pages/Home/home'));
+const About = lazy(() => import('./pages/About/about'));
+const Products = lazy(() => import('./pages/Products/products'));
+const Contact = lazy(() => import('./pages/Contact/contact'));
 
 const router = createBrowserRouter([
   {
@@ -14,16 +16,17 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'about', element: <About /> },
       { path: 'products', element: <Products /> },
-      { path: 'contact', element: <Contact/> },
-
-
+      { path: 'contact', element: <Contact /> },
     ],
-    
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Suspense fallback={<Loader />}>
+      <RouterProvider router={router} />
+    </Suspense>
+  );
 }
 
 export default App;
