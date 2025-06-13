@@ -2,21 +2,31 @@ import React from "react";
 import productImage1 from "../../assets/images/product.jpeg";
 import ProductCard from "./productsCard";
 import Testimonial from "./testimonial";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const products = [
-  { image: productImage1, name: "Solar Lamp", price: 120 },
-  { image: productImage1, name: "Water Pump", price: 300 },
-  { image: productImage1, name: "Rice Harvester", price: 950 },
-  { image: productImage1, name: "Chalkboard", price: 60 },
-  { image: productImage1, name: "Tablet", price: 210 },
-  { image: productImage1, name: "Wheelbarrow", price: 85 },
+// Sample static products
+const sampleProducts = [
+  {
+    name: "Brown Rice",
+    image: productImage1,
+    price: 30,
+    description: "Nutritious brown rice for healthy meals.",
+  },
+  {
+    name: "Corn Grits",
+    image: productImage1,
+    price: 18,
+    description: "Locally processed yellow corn grits.",
+  },
+  {
+    name: "Millet Mix",
+    image: productImage1,
+    price: 25,
+    description: "Organic millet blend rich in fiber.",
+  },
 ];
 
 const Products = () => {
-  const navigate = useNavigate();
-
   return (
     <>
       {/* Header Section */}
@@ -56,9 +66,8 @@ const Products = () => {
             </p>
           </motion.div>
 
-          {/* Product Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {products.map((product, index) => (
+            {sampleProducts.map((product, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}

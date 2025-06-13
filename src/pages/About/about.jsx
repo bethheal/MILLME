@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import productImage1 from "../../assets/images/product.jpeg";
 import { faArrowUp, faLeaf, faHeart, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import PageWrapper from "../../components/PageWrapper"; // ✅ Animation wrapper
+import PageWrapper from "../../components/PageWrapper"; 
 
 const About = () => {
   const [showArrow, setShowArrow] = useState(false);

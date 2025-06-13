@@ -1,20 +1,14 @@
-import React from "react";
-import productImage1 from "../../assets/images/product.jpeg";
+import React, { useEffect } from "react";
 import Testimonial from "../Products/testimonial";
 import { useNavigate } from "react-router-dom";
-import ProductCard from "./productsCard";
 
-const products = [
-  { image: productImage1, name: "Solar Lamp" },
-  { image: productImage1, name: "Water Pump" },
-  { image: productImage1, name: "Rice Harvester" },
-  { image: productImage1, name: "Chalkboard" },
-  { image: productImage1, name: "Tablet" },
-  { image: productImage1, name: "Wheelbarrow" },
-];
+
 
 const Products = () => {
   const navigate = useNavigate();
+
+
+
 
   return (
     <>
@@ -39,16 +33,12 @@ const Products = () => {
                 onClick={() => navigate("/products")}
                 className="relative cursor-pointer rounded-xl h-[40px] w-40 overflow-hidden border border-yellow-400 bg-white px-3 text-yellow-400 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-yellow-400 before:transition-all before:duration-500 hover:text-white hover:shadow-yellow-400 hover:before:left-0 hover:before:w-full"
               >
-                <span className="relative z-10">View All →</span>
+                <span className="relative z-10">View Products →</span>
               </button>
             </div>
 
             {/* Right Content (Grid of Products) */}
-            <div className=" font-body md:w-2/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {products.map((product, i) => (
-                <ProductCard key={i} {...product} />
-              ))}
-            </div>
+           
           </div>
         </div>
       </div>
