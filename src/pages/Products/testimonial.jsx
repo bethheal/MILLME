@@ -5,13 +5,13 @@ import productImage1 from "../../assets/images/product.jpeg";
 
 const Testimonial = () => {
   return (
-    <div className="bg-[#f5faff] py-20 text-center relative">
+    <div className="font-heading bg-[#f5faff] py-20 text-center relative">
       {/* Headings */}
       <p className="text-blue-600 text-sm font-semibold uppercase">Testimonial</p>
       <h2 className="text-3xl font-bold mb-6">Client Feedback</h2>
 
       {/* Quote */}
-      <p className="max-w-xl mx-auto text-gray-600 text-sm md:text-base px-4">
+      <p className="font-body max-w-xl mx-auto text-gray-600 text-sm md:text-base px-4">
         “I had been searching for a new IT role for months with no luck. Trident changed everything.
         Their team not only found me a role that perfectly matched my skill set but also negotiated
         a fantastic compensation package on my behalf. They truly go above and beyond for their clients.”

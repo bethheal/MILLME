@@ -1,22 +1,23 @@
 import React from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { AnimatePresence } from 'framer-motion';
 
 const RootLayout = () => {
-  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <>
       <Navbar />
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
 
-      
+      <main>
+        <AnimatePresence mode="wait">
+          <Outlet key={location.pathname} />
+        </AnimatePresence>
+      </main>
+
+      <Footer />
     </>
   );
 };
