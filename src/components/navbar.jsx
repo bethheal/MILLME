@@ -16,11 +16,14 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
+
             <img
               src={logo}
               alt="Millme Enterprise Logo"
               className="w-10 rounded-b-full m-6"
             />
+
+           <span className="text-white font-bold"> Millme</span>
           </div>
 
           {/* Desktop Nav */}

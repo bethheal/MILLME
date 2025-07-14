@@ -14,9 +14,10 @@ const Footer = () => {
               alt="Millme Enterprise Logo"
               className="w-10 rounded-b-full m-6"
             />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Logo
+              <span className="self-center text-white font-bold   whitespace-nowrap dark:text-white">
+                Millme Enterprise
               </span>
+
             </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
