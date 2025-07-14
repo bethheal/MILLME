@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import productImage1 from "../../assets/images/product.jpeg";
+import products from "../../assets/images/experience.jpg";
 import { faArrowUp, faLeaf, faHeart, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import PageWrapper from "../../components/PageWrapper"; 
+import PageWrapper from "../../components/PageWrapper";
+import { motion } from "framer-motion";
 
 const About = () => {
   const [showArrow, setShowArrow] = useState(false);
@@ -24,85 +25,136 @@ const About = () => {
       {/* Hero Section */}
       <section
         className="relative h-[50vh] bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: `url(${productImage1})` }}
+        style={{ backgroundImage: `url(${products})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 z-10" />
         <div className="relative z-20 text-center px-6 max-w-3xl text-white">
           <h2 className="text-5xl font-bold mb-4 leading-tight">About Us</h2>
-          <p className="text-lg font-light">
-            Millie Dey Millie Products is more than a name – it's a heritage of love, health, and locally grown goodness.
+          <p className="text-lg font-bold">
+            MILLME ENTERPRISE is more than a name  it's a commitment to clean living, care, and community upliftment.
           </p>
         </div>
       </section>
 
-      {/* Mission Section */}
+      {/* Welcome Section */}
+      <section className="py-16 px-6 bg-white text-gray-800">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-3xl text-[#5AA4B8] font-bold mb-4">Welcome to MILLME ENTERPRISE</h3>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Your trusted source for safe, effective, and affordable home and personal care products. At MILLME ENTERPRISE, we believe that cleanliness is more than a habit — it’s a way of caring for your health, your space, and your loved ones.
+          </p>
+          <p className="text-lg text-gray-600">
+            That’s why we produce FDA-approved, high-quality products  from gentle, skin-friendly shower gels to powerful floor and laundry solutions — all designed to leave your space sparkling, fresh, and confidently clean.
+          </p>
+        </div>
+      </section>
+
+      {/* Mission and Values */}
       <section className="py-20 px-6 bg-white text-gray-800">
         <div className="max-w-6xl mx-auto text-center mb-12">
-          <h3 className="text-4xl font-extrabold mb-4">Our Mission & Values</h3>
+          <h3 className="text-3xl text-[#5AA4B8] font-bold mb-4">Our Mission & Core Values</h3>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            We exist to nourish families and empower local farmers through passion, integrity, and sustainability.
+            We aim to become a leading and trusted Ghanaian brand in home and personal care — producing skin-friendly, effective, and affordable products while creating employment and promoting hygiene in homes and institutions.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { icon: faLeaf, title: "Fresh & Natural", desc: "Locally sourced ingredients with no additives." },
-            { icon: faHeart, title: "Made with Love", desc: "Crafted with care and community in mind." },
-            { icon: faUsers, title: "Community Driven", desc: "We grow together, one grain at a time." },
+            {
+              icon: faLeaf,
+              title: "Safe & Trusted",
+              desc: "All our products are FDA-approved and designed with your health in mind.",
+            },
+            {
+              icon: faHeart,
+              title: "Made with Care",
+              desc: "We pour love into every formula — to nourish your space and support your lifestyle.",
+            },
+            {
+              icon: faUsers,
+              title: "Community Focused",
+              desc: "Creating jobs and supporting local growth is at the heart of what we do.",
+            },
           ].map((item, i) => (
-            <div
+            <motion.div
               key={i}
-              className="p-6 bg-yellow-50 rounded-xl text-center shadow-md hover:shadow-xl transition-transform hover:-translate-y-1"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              viewport={{ once: true }}
+              className="p-6 bg-[#EBCE57] rounded-xl text-center shadow-md hover:shadow-xl transition-transform hover:-translate-y-1"
             >
               <FontAwesomeIcon icon={item.icon} className="text-yellow-600 text-4xl mb-4" />
               <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
               <p className="text-gray-600 text-sm">{item.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Meet the Team */}
-      <section className="py-20 px-6 bg-gray-100 text-gray-800">
-        <div className="max-w-5xl mx-auto text-center mb-12">
-          <h3 className="text-4xl font-extrabold">The Brains Behind It All</h3>
-          <p className="text-lg font-light mt-2 text-gray-600">Meet the dedicated team that brings the vision to life.</p>
-        </div>
-        <div className="flex flex-wrap items-center justify-center gap-8">
-          <div className="bg-white rounded-2xl shadow-xl p-6 w-72 text-center hover:scale-105 transition-transform">
-            {/* Optional CEO Image */}
-            {/* <img
-              src={ceoImage}
-              alt="CEO"
-              className="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-yellow-400"
-            /> */}
-            <h4 className="text-xl font-bold">Mrs. Millie Dey</h4>
-            <p className="text-sm text-gray-500">Founder & CEO</p>
-            <p className="mt-2 text-sm font-light text-gray-600">
-              A visionary woman blending tradition and innovation to bring wholesome food to your table.
-            </p>
-          </div>
+      {/* Vision Section */}
+      <section className="py-20 px-6 bg-white text-gray-800">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-3xl font-bold text-[#5AA4B8] mb-4">Our Vision</h3>
+          <p className="text-lg text-gray-600">
+            MILLME ENTERPRISE aspires to be the household standard in clean living across Ghana and beyond  delivering products that not only cleanse deeply but also care for people, generate employment opportunities, and drive lasting positive impacts.
+          </p>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 px-6 bg-white text-gray-800">
+      <section className="py-20 px-6 bg-[#EBCE57] text-gray-800">
         <div className="max-w-4xl mx-auto text-center mb-10">
-          <h3 className="text-4xl font-extrabold mb-4">Why Choose Us?</h3>
+          <h3 className="text-3xl text-[#5AA4B8] font-bold mb-4">Why Choose Us?</h3>
         </div>
         <div className="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
-          <ul className="space-y-3 text-lg text-gray-700 list-disc list-inside">
-            <li>Grown & processed with love</li>
-            <li>Family-run with deep roots</li>
-            <li>Trusted by local communities</li>
-            <li>Innovation rooted in culture</li>
-          </ul>
-          <ul className="space-y-3 text-lg text-gray-700 list-disc list-inside">
-            <li>Eco-conscious packaging</li>
-            <li>Affordable & nutritious</li>
-            <li>Dedicated customer service</li>
-            <li>Passionate, experienced team</li>
-          </ul>
+          <motion.ul
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-3 text-lg text-gray-700 list-disc list-inside"
+          >
+            <li>FDA-approved and safe for all</li>
+            <li>Affordable without compromising quality</li>
+            <li>Committed to job creation in Ghana</li>
+            <li>Trusted by households </li>
+          </motion.ul>
+          <motion.ul
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-3 text-lg text-gray-700 list-disc list-inside"
+          >
+            <li>Respect</li>
+            <li>Accountability</li>
+            <li>Locally produced with pride</li>
+            <li>Backed with passion, impact, and integrity</li>
+          </motion.ul>
         </div>
+      </section>
+
+      {/* Meet the Founder */}
+      <section className="py-20 px-6 bg-white text-gray-800">
+        <div className="max-w-5xl mx-auto text-center mb-12">
+          <h3 className="text-3xl text-[#5AA4B8] font-bold mb-4">Meet Our Founder</h3>
+          <p className="text-lg font-light mt-2 text-gray-600">The visionary mind behind MILLME ENTERPRISE.</p>
+        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap items-center justify-center gap-8"
+        >
+          <div className="bg-gray-100 rounded-2xl shadow-xl p-6 w-[60vw] text-center hover:scale-105 transition-transform">
+            <h4 className="text-xl font-bold">Mrs. Millie Dey</h4>
+            <p className="text-sm text-gray-500">Founder & CEO</p>
+            <p className="mt-2 text-sm font-light text-gray-600">
+              A trailblazing Ghanaian woman blending tradition, care, and innovation to provide quality products and uplift her community.
+            </p>
+          </div>
+        </motion.div>
       </section>
 
       {/* Scroll-to-Top Button */}

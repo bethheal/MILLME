@@ -1,48 +1,72 @@
 import { FaCheckCircle } from "react-icons/fa";
+import { flyer, products } from "../../assets";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const AboutUs = () => {
+  const navigate = useNavigate();
+
   return (
-    <section className="bg-white py-12 px-4 md:px-16 flex flex-col md:flex-row items-center justify-between">
-      {/* Left: Images and Experience */}
-      <div className="relative font-body w-full md:w-1/2 flex justify-center">
+    <section className="bg-[#F7F9FC] py-20 px-6 md:px-20 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden">
+      {/* LEFT: Image Section */}
+      <motion.div
+        initial={{ opacity: 0, x: -80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.9 }}
+        viewport={{ once: true }}
+        className="relative w-full md:w-1/2 flex justify-center items-center"
+      >
+        {/* Back Image */}
+        <div className="absolute -left-10 top-16 z-0">
+          <img
+            src={flyer}
+            alt="Cleaning Action"
+            className="w-60 h-72 object-cover rounded-xl shadow-xl"
+          />
+        </div>
+
+        {/* Front Image */}
         <div className="relative z-10">
           <img
-            src="/images/cleaner1.jpg"
-            alt="Cleaning service"
-            className="w-64 h-72 object-cover rounded-lg shadow-lg"
-          />
-        </div>
-        <div className="absolute left-20 top-24 z-0">
-          <img
-            src="/images/cleaner2.jpg"
-            alt="Cleaning in action"
-            className="w-64 h-72 object-cover rounded-lg shadow-lg"
+            src={products}
+            alt="Product Showcase"
+            className="w-64 h-72 object-cover rounded-xl shadow-xl"
           />
         </div>
 
-        {/* Experience Box */}
-        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg p-4 shadow-xl text-center">
-          <h2 className="text-3xl font-bold text-blue-900">20+</h2>
-          <p className="text-sm text-gray-500">Years Experience</p>
+        {/* Floating Experience Box */}
+        <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-md border border-gray-200 rounded-xl p-4 shadow-xl z-20 text-center">
+          <h2 className="text-3xl font-bold text-[#107B98]">20+</h2>
+          <p className="text-sm text-gray-700">Years of Experience</p>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Right: Text Content */}
-      <div className="w-full md:w-1/2 mt-10 font-body md:mt-0">
-        <p className="text-sm font-semibold font-heading text-blue-600 mb-2">ABOUT US</p>
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">
-          Best Cleaning Services Provider Since 2001
+      {/* RIGHT: Text Section */}
+      <motion.div
+        initial={{ opacity: 0, x: 80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.9, delay: 0.1 }}
+        viewport={{ once: true }}
+        className="w-full md:w-1/2 font-body"
+      >
+        <p className="text-sm font-semibold text-[#107B98] uppercase mb-2 tracking-wider">
+          About Us
+        </p>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-snug">
+          Ghana’s Trusted Cleaning & Personal Care Brand Since 2001
         </h2>
-        <p className="text-gray-600 mb-6">
-          Est ante in nibh mauris cursus mattis molestie. Tellus rutrum tellus pellentesque eu tincidunt.
+        <p className="text-gray-700 mb-6 leading-relaxed text-base">
+          <span className="font-semibold text-[#107B98]">MILLME ENTERPRISE</span> is a proudly Ghanaian brand committed to health, hygiene, and local empowerment. We manufacture top-quality liquid soap, shower gel, fabric softener, floor cleaner, bleach, and washing powder — all{" "}
+          <span className="font-semibold">FDA-approved</span> for safety and excellence.
         </p>
 
-        <ul className="space-y-3 mb-6 font-body">
+        {/* Bullet Points */}
+        <ul className="space-y-3 mb-8">
           {[
-            "Loaded with Professional and Honest Cleaners",
-            "Provide the Finest Cleaning Supplies",
-            "100% Satisfaction Cleaning Service",
-            "We are bonded and insured",
+            "Proudly Ghanaian-owned and operated",
+            "Wide range of essential hygiene products",
+            "All products are FDA-approved and safe",
+            "Committed to job creation and community care",
           ].map((text, index) => (
             <li key={index} className="flex items-start">
               <FaCheckCircle className="text-yellow-400 mt-1 mr-2" />
@@ -51,10 +75,15 @@ const AboutUs = () => {
           ))}
         </ul>
 
-        <button onClick={() => navigate("/about")} className="font-body cursor-pointer bg-yellow-400 text-black px-6 py-2 rounded hover:bg-yellow-500 transition font-semibold">
-          More About Us
-        </button>
-      </div>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => navigate("/about")}
+          className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-yellow-500 transition"
+        >
+          Learn More About Us
+        </motion.button>
+      </motion.div>
     </section>
   );
 };

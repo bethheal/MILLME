@@ -1,49 +1,63 @@
-import React, { useEffect } from "react";
-import Testimonial from "../Products/testimonial";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-
-
+import { motion } from "framer-motion";
+import Testimonial from "../Products/testimonial";
+import { products } from "../../assets"; // make sure this is a general showcase image or grid fallback
 
 const Products = () => {
   const navigate = useNavigate();
 
-
-
-
   return (
     <>
-      {/* Products Section */}
-      <div className="mt-12  mx-20">
-        <h2 className=" font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10">
-        
-        </h2>
+      {/* PRODUCTS SECTION */}
+      <section className="bg-white py-20 px-6 md:px-20 overflow-hidden">
+        <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
+          {/* LEFT: Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="w-full md:w-1/2"
+          >
+            <p className="text-sm font-semibold uppercase text-[#107B98] mb-2 tracking-wider">
+              Our Products
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-snug">
+              Products You Can Trust and Love
+            </h2>
+            <p className="text-gray-700 text-base mb-6 leading-relaxed">
+              From refreshing shower gels to powerful cleaning agents, explore the full range of safe, effective, and FDA-approved products crafted with care by MILLME ENTERPRISE.
+            </p>
 
-        <div className="bg-gradient-to-b from-blue-500 to-blue-700 py-12 px-4 sm:px-6 text-white">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10">
-            {/* Left Content */}
-            <div className="md:w-1/3 font-body">
-              <p className=" font-heading uppercase text-sm font-medium">Our Products</p>
-              <h3 className="text-2xl sm:text-3xl font-bold my-4">Products You Can Buy</h3>
-              <p className="text-sm mb-6 leading-relaxed">
-                Discover items needed to clean schools and communities. Support
-                by donating again and again.
-              </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate("/products")}
+              className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-yellow-500 transition"
+            >
+              View All Products →
+            </motion.button>
+          </motion.div>
 
-              <button
-                onClick={() => navigate("/products")}
-                className="relative cursor-pointer rounded-xl h-[40px] w-40 overflow-hidden border border-yellow-400 bg-white px-3 text-yellow-400 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-yellow-400 before:transition-all before:duration-500 hover:text-white hover:shadow-yellow-400 hover:before:left-0 hover:before:w-full"
-              >
-                <span className="relative z-10">View Products →</span>
-              </button>
-            </div>
-
-            {/* Right Content (Grid of Products) */}
-           
-          </div>
+          {/* RIGHT: Image or Product Display */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="w-full md:w-1/2 flex justify-center"
+          >
+            <img
+              src={products}
+              alt="Millme Product Showcase"
+              className="w-full max-w-md rounded-xl shadow-lg object-cover"
+            />
+          </motion.div>
         </div>
-      </div>
+      </section>
 
-      {/* Testimonial Section */}
+      {/* TESTIMONIAL SECTION */}
       <Testimonial />
     </>
   );

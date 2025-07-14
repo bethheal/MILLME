@@ -7,24 +7,49 @@ import { motion } from "framer-motion";
 // Sample static products
 const sampleProducts = [
   {
-    name: "Brown Rice",
+    name: "Liquid Soap",
     image: productImage1,
-    price: 30,
-    description: "Nutritious brown rice for healthy meals.",
+    price: "10 - 50",
+    description:
+      "Tough on grease, gentle on hands. Available in 200ml, 500ml, 1L, and 5L sizes.",
   },
   {
-    name: "Corn Grits",
+    name: "Shower Gel",
     image: productImage1,
-    price: 18,
-    description: "Locally processed yellow corn grits.",
+    price: "15 - 40",
+    description:
+      "Enriched with glycerin, honey, shea butter & Vitamin E. Sizes: 500ml | 1L",
   },
   {
-    name: "Millet Mix",
+    name: "Fabric Softener",
     image: productImage1,
-    price: 25,
-    description: "Organic millet blend rich in fiber.",
+    price: "12 - 35",
+    description:
+      "Reduces static, softens fabric, and adds long-lasting scent. Sizes: 450ml | 1L | 2L",
+  },
+  {
+    name: "Floor Cleaner",
+    image: productImage1,
+    price: "15 - 50",
+    description:
+      "Deep cleans floors. Suitable for tile, terrazzo, wood & more. Sizes: 1L | 2L | 5L",
+  },
+  {
+    name: "Bleach",
+    image: productImage1,
+    price: "10 - 20",
+    description:
+      "Disinfect and whiten clothes or surfaces. Sizes: 500ml | 1L",
+  },
+  {
+    name: "Washing Powder",
+    image: productImage1,
+    price: "2 - 35",
+    description:
+      "High-foam, stain-lifting formula. Sizes: 20g | 50g | 1KG",
   },
 ];
+
 
 const Products = () => {
   return (
@@ -32,17 +57,17 @@ const Products = () => {
       {/* Header Section */}
       <div
         className="relative mx-6 md:mx-20 h-[50vh] bg-cover bg-center flex items-center justify-center rounded-xl shadow-xl overflow-hidden"
-        style={{ backgroundImage: `url(${productImage1})` }}
+        // style={{ backgroundImage: `url(${productImage1})` }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-60 z-10" />
+        <div className="absolute inset-0 text-[#117C9A] z-10" />
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="relative z-20 text-center px-6 max-w-4xl text-white"
         >
-          <h2 className="text-5xl font-bold mb-4">WHY BUY FROM US</h2>
-          <p className="text-lg leading-relaxed font-light">
+          <h2 className="text-5xl text-[#107D9A] font-bold mb-4">WHY BUY FROM US</h2>
+          <p className="text-lg text-gray-500 leading-relaxed font-light">
             At Millie Dey Millie Products, we bring you the finest grains, cereals,
             and processed foods. Empower families with healthy food choices while
             preserving local agricultural heritage.
@@ -51,7 +76,7 @@ const Products = () => {
       </div>
 
       {/* Product Grid Section */}
-      <div className="bg-gradient-to-b from-blue-500 to-blue-700 py-16 px-6 text-white">
+      <div className="bg-gradient-to-b from-[#107B98]/60 to-[#107B98]/90 py-16 px-6 text-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}

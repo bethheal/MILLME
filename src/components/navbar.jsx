@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { k } from '../constant';
-import { Menu, X } from 'lucide-react'; // Optional: icon library like lucide-react
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { k } from "../constant";
+import { Menu, X } from "lucide-react"; // Optional: icon library like lucide-react
+import { logo } from "../assets";
 
 const Navbar = () => {
   const location = useLocation();
@@ -10,12 +11,16 @@ const Navbar = () => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <header className="sticky top-0 left-0 w-full z-50 border-b-2 border-[#EAD685] bg-gradient-to-b from-blue-500/60 to-blue-700/60">
+    <header className="sticky top-0 left-0 w-full z-50 border-b-2 border-[#EAD685] bg-gradient-to-b from-[#107B98]/60 to-[#107B98]/90">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="font-bold text-xl text-[#EAD685]">Logo</h1>
+            <img
+              src={logo}
+              alt="Millme Enterprise Logo"
+              className="w-10 rounded-b-full m-6"
+            />
           </div>
 
           {/* Desktop Nav */}
@@ -27,13 +32,15 @@ const Navbar = () => {
                   key={index}
                   to={item.path}
                   className={`group relative uppercase transition-colors duration-200 ${
-                    isActive ? 'text-[#EBCE57]' : 'text-white hover:text-[#EBCE57]'
+                    isActive
+                      ? "text-[#EBCE57]"
+                      : "text-white hover:text-[#EBCE57]"
                   }`}
                 >
                   {item.navName}
                   <span
                     className={`absolute left-0 -bottom-1 h-0.5 bg-[#EAD685] transition-all duration-300 ${
-                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                   />
                 </Link>
@@ -44,7 +51,11 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button onClick={toggleMenu} aria-label="Toggle menu">
-              {menuOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
+              {menuOpen ? (
+                <X size={24} className="text-white" />
+              ) : (
+                <Menu size={24} className="text-white" />
+              )}
             </button>
           </div>
         </div>
@@ -62,7 +73,7 @@ const Navbar = () => {
                     to={item.path}
                     onClick={() => setMenuOpen(false)}
                     className={`block uppercase transition-colors duration-200 ${
-                      isActive ? 'text-[#EBCE57]' : 'hover:text-[#EBCE57]'
+                      isActive ? "text-[#EBCE57]" : "hover:text-[#EBCE57]"
                     }`}
                   >
                     {item.navName}

@@ -1,21 +1,21 @@
+// Home.jsx
 import React, { useEffect, useState } from "react";
-import "../../App.css";
-import AboutUsSection from "./about";
-import Products from "./products";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { bannerImg, logo } from "../../assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+import AboutUsSection from "./about";
+import Products from "./products";
+import PageWrapper from "../../components/PageWrapper";
 import { ChevronRight } from "lucide-react";
-import PageWrapper from "../../components/PageWrapper"; // 🟡 Add this import
 
 const Home = () => {
   const [showArrow, setShowArrow] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setShowArrow(window.scrollY > 300);
-    };
+    const handleScroll = () => setShowArrow(window.scrollY > 300);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -24,45 +24,65 @@ const Home = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  
   return (
     <PageWrapper>
-      {/* Hero Section */}
-      <section className="w-full mx-20 min-h-[70vh] flex flex-col md:flex-row items-center justify-center md:justify-between px-6 sm:px-10 lg:px-20 py-10">
-        {/* Left Text Block */}
-        <div className="max-w-lg  text-center md:text-left">
-          <h1 className="text-3xl font-heading sm:text-4xl lg:text-5xl text-text-color font-heebo font-semibold mb-6">
-            Millie Dey Millie Products
+      {/* HERO SECTION */}
+      <section className="min-h-screen bg-gradient-to-br from-[#F7F9FC] via-white to-[#F9F9F9] flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-20 py-20 relative overflow-hidden">
+        {/* Text Block */}
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-xl z-10 text-center md:text-left"
+        >
+          <h1 className="text-5xl font-bold text-[#107B98] leading-tight mb-6">
+            Clean Living, <br />
+            <span className="text-yellow-400">Trusted Care</span>
           </h1>
-          <p className="text-base font-body sm:text-lg text-black font-mulish font-light mb-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
-            doloremque, dolor unde, !
+          <p className="text-gray-700 text-lg md:text-xl mb-8 leading-relaxed">
+            Discover safe, effective, and affordable care products designed to refresh your home and body—crafted by Ghanaians for Ghanaians.
           </p>
-          <button
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => navigate("/products")}
-            className="relative font-body cursor-pointer rounded-xl h-[3rem] w-[10.4rem] overflow-hidden border border-yellow-400 bg-white px-3 text-yellow-400 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-yellow-400 before:transition-all before:duration-500 hover:text-white hover:shadow-yellow-400 hover:before:left-0 hover:before:w-full"
+            className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-yellow-500 transition"
           >
-            <span className="relative z-10 flex gap-4">
-              Our Products <ChevronRight />
-            </span>
-          </button>
-        </div>
+            Explore Products <ChevronRight className="inline-block ml-2 w-5 h-5" />
+          </motion.button>
+        </motion.div>
+
+        {/* Image Block */}
+        <motion.div
+          initial={{ opacity: 0, x: 80 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="w-full md:w-[500px] relative"
+        >
+          <img
+            src={logo}
+            alt="Millme Logo"
+            className="rounded-full shadow-xl w-72 mx-auto md:mx-0"
+          />
+          <div className="absolute inset-0 bg-black/10 rounded-full" />
+        </motion.div>
       </section>
 
-      {/* About & Products Sections */}
+      {/* About and Product Sections */}
       <AboutUsSection />
       <Products />
 
-      {/* Scroll-to-Top Button */}
-      {showArrow && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 p-3 bg-yellow-400 text-white rounded-xl shadow-lg hover:bg-[#FEE08A] transition"
-          aria-label="Scroll to top"
-        >
-          <FontAwesomeIcon icon={faArrowUp} />
-        </button>
-      )}
+      {/* Scroll-to-top */}
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: showArrow ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        onClick={scrollToTop}
+        className="fixed bottom-6 right-6 z-50 p-3 bg-yellow-400 text-white rounded-full shadow-lg hover:bg-yellow-500 transition"
+      >
+        <FontAwesomeIcon icon={faArrowUp} className="w-5 h-5" />
+      </motion.button>
     </PageWrapper>
   );
 };

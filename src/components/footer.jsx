@@ -1,17 +1,19 @@
 import React from 'react';
+import { logo } from "../assets";
+
 
 const Footer = () => {
   return (
-    <footer className="bg-white dark: bg-gradient-to-b from-blue-500 to-blue-700">
+    <footer className=" border-t-2 border-[#EAD685] bg-gradient-to-b from-[#107B98]/60 to-[#107B98]/90">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a href="/" className="flex items-center">
               <img
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="h-8 me-3"
-                alt="Milie Logo"
-              />
+              src={logo}
+              alt="Millme Enterprise Logo"
+              className="w-10 rounded-b-full m-6"
+            />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
                 Logo
               </span>
@@ -37,10 +39,10 @@ const Footer = () => {
               </h2>
               <ul className="text-white dark:text-white font-medium">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">Facebook</a>
+                  <a href="https://www.instagram.com/millme_ent" className="hover:underline">Instagram</a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">Instagram</a>
+                  <a href="https://www.tiktok.com/@millme_ent" className="hover:underline">Tiktok</a>
                 </li>
               </ul>
             </div>
