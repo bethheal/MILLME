@@ -23,7 +23,7 @@ const Navbar = () => {
               className="w-10 rounded-b-full m-6"
             />
 
-           <span className="text-white font-bold"> Millme</span>
+           <span className="text-white font-bold"> MILLME </span>
           </div>
 
           {/* Desktop Nav */}

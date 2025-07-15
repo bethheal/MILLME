@@ -15,7 +15,7 @@ const Footer = () => {
               className="w-10 rounded-b-full m-6"
             />
               <span className="self-center text-white font-bold   whitespace-nowrap dark:text-white">
-                Millme Enterprise
+                MILLME Enterprise
               </span>
 
             </a>
